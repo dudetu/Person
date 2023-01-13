@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Person {
+public  abstract class Person {
 
     //1) Сделать его правильным - создать геттеры и сеттеры, проверить, что он соответствует тем правилам, которые мы с вами обсуждали.
 
@@ -19,6 +19,10 @@ public class Person {
     private double weight;
     double workAge;
 
+
+    public Person() {
+    }
+
     public Person(String name, int age, int height, int weight) {
         this.name = name;
         this.age = age;
@@ -26,8 +30,8 @@ public class Person {
         this.weight = weight;
     }
 
-    public Person() {
-    }
+
+ abstract void die();
 
 
     public String goWork() {
@@ -38,7 +42,6 @@ public class Person {
         }
 
 
-    }
 
     public void info() {
         System.out.println(this.name + this.age + this.height + this.weight);
