@@ -31,7 +31,7 @@ public  abstract class Person {
     }
 
 
- abstract void die();
+    abstract void die();
 
 
     public String goWork() {
@@ -41,13 +41,15 @@ public  abstract class Person {
             System.out.println("Pаботаю");
         }
 
-
-
-    public void info() {
-        System.out.println(this.name + this.age + this.height + this.weight);
+        return null;
     }
 
-}
+
+    public void getInfo() {
+        System.out.println(name + age + height + weight);
+
+        }
+
 
 
     public String getName() {
