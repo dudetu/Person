@@ -1,5 +1,5 @@
 public class MainPension {
-    public static void main(String[] args) {
+    public  static  void main (String[] args) {
 
 
         PensionFund statePensionFund = new PensionFund("Goverment", true, "23-09-1983");
