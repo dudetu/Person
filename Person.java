@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Objects;
 
 public  abstract class Person {
@@ -19,8 +20,10 @@ public  abstract class Person {
     private double weight;
     double workAge;
 
+    private List<Person> children;
 
-    public Person() {
+    public Person(List<Person> children) {
+        this.children = children;
     }
 
     public Person(String name, int age, int height, int weight) {
@@ -31,7 +34,8 @@ public  abstract class Person {
     }
 
 
-    abstract void die();
+    public void die() {
+    }
 
 
     public String goWork() {
@@ -61,14 +65,17 @@ public  abstract class Person {
     }
 
     public int getHeight() {
+
         return height;
     }
 
     public double getWeight() {
+
         return weight;
     }
 
     public double getWorkAge() {
+
         return workAge;
     }
 
@@ -77,6 +84,7 @@ public  abstract class Person {
     }
 
     public void setAge(int age) {
+
         this.age = age;
     }
 
@@ -84,12 +92,21 @@ public  abstract class Person {
         this.height = height;
     }
 
-    public void setWeight(double weight) {
-        this.weight = weight;
+    public void setWeight(double weight){
+    this.weight = weight;
     }
 
     public void setWorkAge(double workAge) {
+
         this.workAge = workAge;
+    }
+
+    public List<Person> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<Person> children) {
+        this.children = children;
     }
 
     @Override
