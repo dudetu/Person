@@ -15,11 +15,17 @@ private TypeOfFond type;
         this.type= type;
         this.date = date;
     }
+
+    public PensionFund(String пенсионный_фонд_берлина, TypeOfFond state, String date, String date1) {
+
+        this.date = date1;
+    }
+
     public double calculatePension( int age, double minSalary, double maxSalary){
         double avergeSalary;
           switch (type){
               case STATE :
-                  avergeSalary =AverageUtils.average(minSalary,maxSalary);
+                  avergeSalary = AverageUtils.average(minSalary,maxSalary);
                   break;
               case NOT_STATE:
                   avergeSalary=AverageUtils.average(minSalary,maxSalary,AVERAGE_SALARY);
@@ -46,6 +52,7 @@ private TypeOfFond type;
 
     @Override
     public int hashCode() {
+
         return Objects.hash(name, date, type);
     }
 
@@ -59,10 +66,12 @@ private TypeOfFond type;
     }
 
     public String getName() {
+
         return name;
     }
 
     public void setName(String name) {
+
         this.name = name;
     }
 
@@ -70,14 +79,16 @@ private TypeOfFond type;
         return date;
     }
 
-    public TypeOfFond getType() {
-        return type;
+    public TypeOfFond getType(){
+    return type;
     }
 
     public void setType(TypeOfFond type) {
+
         this.type = type;
     }
 }
+
 
 
 
