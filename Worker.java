@@ -1,14 +1,35 @@
+import jdk.internal.icu.text.UnicodeSet;
+
+import java.time.Month;
 import java.util.List;
+import java.util.Set;
 
 public class Worker  extends Person implements AbleToCalculatePension {
 private static final int MONEY_PER_CHILD = 200;
+    private static final List<Person> children = null;
 
-    public Worker(List<Person> children) {
+    public Worker() {
         super(children);
     }
 
     private double minSalaary;
+
     private double maxSalary;
+    private Month month;
+
+
+
+
+
+    private Set < PensionFund> availablePensionFunds;
+
+    public Set<PensionFund> getAvailablePensionFunds(UnicodeSet set) {
+        return availablePensionFunds;
+    }
+
+    public void setAvailablePensionFunds(Set<PensionFund> availablePensionFunds) {
+        this.availablePensionFunds = availablePensionFunds;
+    }
 
     @Override
     public void die() {
@@ -39,16 +60,22 @@ private static final int MONEY_PER_CHILD = 200;
 
     @Override
     public double calculatePension() {
-        PensionFund pensionFund = new PensionFund(" Пенсионный фонд Берлин", true, "28-05-1977");
+
         int age = getAge();
         int additionalSalary = 0;
          if ( getChildren() != null){
              additionalSalary = getChildren().size() * MONEY_PER_CHILD;
          }
         additionalSalary += minSalaary;
+         double maxPension = 0.0;
+         for (PensionFund fund: availablePensionFunds ){
+             double result = fund.calculatePension(age, maxSalary, minSalaary);
+             if ( result > maxPension)
+                 maxPension = result;
+                }
         
-        double result = pensionFund.calculatePension(age, maxSalary, minSalaary);
-        return result;
+
+        return maxPension;
         
     }
   public String toString (){
@@ -56,10 +83,12 @@ private static final int MONEY_PER_CHILD = 200;
       return  "classes.Worker{"+
               "minSalary="+ minSalaary + 
                 " ,maxSalary=" + maxSalary +
-                ", month=" + month +
+                ", month =" + month +
                 '}';
                 
   }
 
 
+    public void setMinSalary(int i) {
+    }
 }
