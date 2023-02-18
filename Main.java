@@ -1,27 +1,22 @@
+import Human.Company;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class Main {
-    public Main() {
-    }
-
-    public static void main(String[] args) {
-        System.out.println("Hello world!");
-        Person person = new Person("Lola", 25, 165, 55);
-       Person secondPerson= new Person(" Viktor", 70, 170, 80);
+    public  static  void main (String[] args) {
 
 
-        person.name = "Lola";
-        person.age = 25;
-        person.height = 165;
-        person.weight = 55;
+        Company microsoft = new Company("Microsoft");
+        Map<String, String> holidays = new HashMap<>();
+        holidays.put("Christmas", "25.12");
+        microsoft.setHolidays(holidays);
 
 
-        System.out.println(person.name);
-        System.out.println(person.age);
-        System.out.println(person.height);
-        System.out.print(person.weight);
-        person.goWork();
-        person.info();
+        Company google = new Company("Google");
+        holidays.put("Christmas", "31.12");
+        google.setHolidays(holidays);
+
+
     }
 }
-
-
-
