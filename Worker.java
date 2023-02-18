@@ -9,6 +9,7 @@ private static final int MONEY_PER_CHILD = 200;
     private static final List<Person> children = null;
 
     public Worker() {
+
         super(children);
     }
 
@@ -25,6 +26,7 @@ private static final int MONEY_PER_CHILD = 200;
 
     public Set<PensionFund> getAvailablePensionFunds(UnicodeSet set) {
         return availablePensionFunds;
+
     }
 
     public void setAvailablePensionFunds(Set<PensionFund> availablePensionFunds) {
@@ -78,7 +80,13 @@ private static final int MONEY_PER_CHILD = 200;
         return maxPension;
         
     }
-  public String toString (){
+
+    @Override
+    public boolean requestFundToCalcculatePension() {
+        return false;
+    }
+
+    public String toString (){
       String month = null;
       return  "classes.Worker{"+
               "minSalary="+ minSalaary + 
